@@ -1,6 +1,7 @@
 # vo-frontend-proj
 <!-- TOC depthFrom:2 orderedList:true--> 
 - [vo-frontend-proj](#vo-frontend-proj)
+  - [progress](#progress)
   - [dependency](#dependency)
   - [dataset](#dataset)
   - [build and run](#build-and-run)
@@ -11,8 +12,9 @@
   - [Config 类](#config-类)
 
 ## progress
--[x] v0.1
--[ ] v0.2
+
+- [x] v0.1
+- [ ] v0.2
 
 ## dependency 
 
