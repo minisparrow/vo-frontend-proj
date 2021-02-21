@@ -1,8 +1,9 @@
 # vo-frontend-proj
 
-## environment 
+## dependency 
 
 opencv3.4
+
 sudo apt install libvtk6-dev 
 
 ## dataset 
