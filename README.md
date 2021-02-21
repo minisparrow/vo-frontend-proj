@@ -30,6 +30,7 @@ make -j8
 
 > 世界坐标到相机坐标
 
+```
   Vector3d Camera::world2camera ( const Vector3d& p_w, const SE3& T_c_w )
   {
       return T_c_w*p_w;
@@ -39,9 +40,11 @@ make -j8
   {
       return T_c_w.inverse() *p_c;
   }
+```
 
 > 相机坐标到像素坐标
 
+```
   Vector2d Camera::camera2pixel ( const Vector3d& p_c )
   {
       return Vector2d (
@@ -58,9 +61,11 @@ make -j8
           depth
       );
   }
+```
 
 > 世界坐标到像素坐标
 
+```
   Vector2d Camera::world2pixel ( const Vector3d& p_w, const SE3& T_c_w )
   {
       return camera2pixel ( world2camera ( p_w, T_c_w ) );
@@ -70,3 +75,4 @@ make -j8
   {
       return camera2world ( pixel2camera ( p_p, depth ), T_c_w );
   }
+```
