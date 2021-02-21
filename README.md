@@ -11,8 +11,8 @@
   - [Config 类](#config-类)
 
 ## progress
--[x] v0.1
--[ ] v0.2
+- [x] v0.1
+- [ ] v0.2
 
 ## dependency 
 
