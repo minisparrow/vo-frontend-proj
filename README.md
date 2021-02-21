@@ -1,4 +1,11 @@
 # vo-frontend-proj
+<!-- TOC depthFrom:2 orderedList:true--> 
+- [vo-frontend-proj](#vo-frontend-proj)
+  - [dependency](#dependency)
+  - [dataset](#dataset)
+  - [build and run](#build-and-run)
+  - [camera model](#camera-model)
+  - [MapPoint 路标点](#mappoint-路标点)
 
 ## dependency 
 
@@ -76,3 +83,12 @@ make -j8
       return camera2world ( pixel2camera ( p_p, depth ), T_c_w );
   }
 ```
+
+## MapPoint 路标点
+
+我们将估计它的世界坐标，并且拿当前帧提取到的特征点与地图中的路标点匹配，
+来估计相机的运动，因此还需要存储对应的描述子。
+
+还需记录一个点被观察到的次数和被匹配的次数。作为评价其好坏程度的指标。
+
+
