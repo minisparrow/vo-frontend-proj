@@ -5,7 +5,10 @@
   - [dataset](#dataset)
   - [build and run](#build-and-run)
   - [camera model](#camera-model)
+  - [Frame 类](#frame-类)
   - [MapPoint 路标点](#mappoint-路标点)
+  - [Map 管理所有路标点](#map-管理所有路标点)
+  - [Config 类](#config-类)
 
 ## dependency 
 
@@ -83,6 +86,7 @@ make -j8
       return camera2world ( pixel2camera ( p_p, depth ), T_c_w );
   }
 ```
+## Frame 类
 
 ## MapPoint 路标点
 
@@ -91,4 +95,44 @@ make -j8
 
 还需记录一个点被观察到的次数和被匹配的次数。作为评价其好坏程度的指标。
 
+```c++
+class MapPoint
+{
+public:
+    typedef shared_ptr<MapPoint> Ptr;
+    unsigned long      id_; // ID
+    Vector3d    pos_;       // Position in world
+    Vector3d    norm_;      // Normal of viewing direction 
+    Mat         descriptor_; // Descriptor for matching 
+    int         observed_times_;    // being observed by feature matching algo.
+    int         correct_times_;     // being an inliner in pose estimation
+    
+    MapPoint();
+    MapPoint( long id, Vector3d position, Vector3d norm );
+    
+    // factory function
+    static MapPoint::Ptr createMapPoint();
+};
+```
+## Map 管理所有路标点
 
+- 添加新路标
+- 删除不好的路标
+- VO 匹配过程只要和Map打交道即可
+
+```c++
+class Map
+{
+public:
+    typedef shared_ptr<Map> Ptr;
+    unordered_map<unsigned long, MapPoint::Ptr >  map_points_;        // all landmarks
+    unordered_map<unsigned long, Frame::Ptr >     keyframes_;         // all key-frames
+
+    Map() {}
+    
+    void insertKeyFrame( Frame::Ptr frame );
+    void insertMapPoint( MapPoint::Ptr map_point );
+};
+```
+
+## Config 类
