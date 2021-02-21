@@ -10,6 +10,10 @@
   - [Map 管理所有路标点](#map-管理所有路标点)
   - [Config 类](#config-类)
 
+## progress
+-[x] v0.1
+-[ ] v0.2
+
 ## dependency 
 
 opencv3.4
